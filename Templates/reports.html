@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Database Reports</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 5px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+<h1>Database Reports</h1>
+
+<!-- Report 1: Average Duration of All Movies -->
+<div>
+    <h2>Average Movie Duration</h2>
+    <p>The average duration of all movies is: {{ avg_movie_duration }} minutes</p>
+</div>
+
+<!-- Report 2: Total Number of Seats Available in Each Theater Room -->
+<div>
+    <h2>Total Number of Seats in Each Theater Room</h2>
+    <table>
+        <tr>
+            <th>Theater Room ID</th>
+            <th>Total Seats</th>
+        </tr>
+        {% for room in total_seats_each_room %}
+        <tr>
+            <td>{{ room[0] }}</td>
+            <td>{{ room[1] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+<!-- Report 3: Movies with the Word “The” -->
+<div>
+    <h2>Movies with the Word "The"</h2>
+    <ul>
+        {% for movie in movies_with_the %}
+        <li>{{ movie }}</li> <!-- Assuming 'title' is the column name -->
+        {% endfor %}
+    </ul>
+</div>
+
+<!-- Report 4: Sci-Fi or Romance Movies -->
+<div>
+    <h2>Sci-Fi or Romance Movies</h2>
+    <ul>
+        {% for movie in scifi_romance_movies %}
+        <li>{{ movie }}</li> <!-- Assuming 'title' is the column name -->
+        {% endfor %}
+    </ul>
+</div>
+
+<!-- Report 5: Movies Released Between Certain Dates -->
+<div>
+    <h2>Movies Released Between Specific Dates</h2>
+    <ul>
+        {% for movie in movies_in_date_range %}
+        <li>{{ movie }}</li> <!-- Assuming 'title' is the column name -->
+        {% endfor %}
+    </ul>
+</div>
+
+<!-- Report 6: Action Movies or Movies Longer than 150 Minutes -->
+<div>
+    <h2>Action Movies or Movies Longer than 150 Minutes</h2>
+    <ul>
+        {% for movie in action_or_long_movies %}
+        <li>{{ movie }}</li> <!-- Assuming 'title' is the column name -->
+        {% endfor %}
+    </ul>
+</div>
+
+<!-- Report 7: Employees with Salary Greater than 70k -->
+<div>
+    <h2>Employees with Salary Greater than 70k</h2>
+    <ul>
+        {% for employee in high_salary_employees %}
+        <li>{{ employee }}</li> <!-- Assuming 'name' is the column name -->
+        {% endfor %}
+    </ul>
+</div>
+
+<!-- Report 9: Genres with More than One Movie -->
+<div>
+    <h2>Genres with More than One Movie</h2>
+    <ul>
+        {% for genre in genres_with_multiple_movies %}
+        <li>{{ genre }}</li>
+        {% endfor %}
+    </ul>
+</div>
+
+<!-- Report 10: Movies Longer Than the Average Duration -->
+<div>
+    <h2>Movies Longer Than the Average Duration</h2>
+    <ul>
+        {% for movie in longer_than_average_movies %}
+        <li>{{ movie }}</li> <!-- Assuming 'title' is the column name -->
+        {% endfor %}
+    </ul>
+</div>
+
+<!-- Report 11: Longest Movies -->
+<div>
+    <h2>Longest Movies</h2>
+    <ul>
+        {% for movie in longest_movies %}
+        <li>{{ movie }}</li> <!-- Assuming 'title' is the column name -->
+        {% endfor %}
+    </ul>
+</div>
+<button onclick="window.location.href='/'">Back to Home</button>
+
+</body>
+</html>
